@@ -9,7 +9,8 @@ function Home() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleCardClick = (id) => {
@@ -20,26 +21,20 @@ function Home() {
     <div className="home">
       {/* Theme Toggle */}
       <ThemeToggle />
-      
+
       {/* Animated Background */}
       <div className="bg-animation">
-        <div class="gradient-blob blob-1"></div>
+        <div className="gradient-blob blob-1"></div>
         <div className="gradient-blob blob-2"></div>
         <div className="gradient-blob blob-3"></div>
+
         <div className="floating-circle circle-1"></div>
         <div className="floating-circle circle-2"></div>
         <div className="floating-circle circle-3"></div>
-        
-        {/* Animated Grid Lines */}
-        <div className="grid-lines">
-          <div className="grid-line horizontal line-1"></div>
-          <div className="grid-line horizontal line-2"></div>
-          <div className="grid-line horizontal line-3"></div>
-          <div className="grid-line vertical line-4"></div>
-          <div className="grid-line vertical line-5"></div>
-          <div className="grid-line vertical line-6"></div>
-        </div>
-        
+
+        {/* Grid Lines */}
+        <div className="grid-lines"></div>
+
         {/* Floating Dots */}
         <div className="floating-dots">
           <span className="dot dot-1"></span>
@@ -51,13 +46,16 @@ function Home() {
         </div>
       </div>
 
-      {/* Hero Section */}
+      {/* ── HERO SECTION ─────────────────────────── */}
       <section className="hero">
         <div className={`hero-content ${isVisible ? 'visible' : ''}`}>
+
+          {/* Logo */}
           <div className="logo-badge">
             <img src="/images/logo-wika.png" alt="WIKA Beton Logo" className="company-logo" />
           </div>
-          
+
+          {/* Title */}
           <h1 className="hero-title">
             <span className="title-welcome">Welcome to</span>
             <span className="title-main">
@@ -67,59 +65,97 @@ function Home() {
             <span className="title-intern">Intern Program</span>
             <span className="title-year">2026</span>
           </h1>
-          
+
+          {/* Subtitle */}
           <p className="hero-subtitle">
-            Meet our talented interns building the future of infrastructure
+            Meet our talented interns building the future of infrastructure at Indonesia's leading concrete company.
           </p>
 
+          {/* Stats */}
+          <div className="hero-stats">
+            <div className="stat-item">
+              <span className="stat-number">6</span>
+              <span className="stat-label">Interns</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item">
+              <span className="stat-number">3</span>
+              <span className="stat-label">Divisions</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item">
+              <span className="stat-number">2026</span>
+              <span className="stat-label">Batch</span>
+            </div>
+            <div className="stat-divider"></div>
+            <div className="stat-item">
+              <span className="stat-number">3mo</span>
+              <span className="stat-label">Program</span>
+            </div>
+          </div>
+
+          {/* Scroll Hint */}
           <div className="scroll-hint">
             <span>Scroll to meet the team</span>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
               <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </div>
         </div>
       </section>
 
-      {/* Interns Section */}
+      {/* ── INTERNS SECTION ──────────────────────── */}
       <section className="interns-section">
         <div className="container">
+
+          {/* Section Header */}
           <div className="section-header">
-            <h2 className="section-title">Peserta Intern</h2>
+            <div className="section-eyebrow">
+              <span className="section-eyebrow-dot"></span>
+              Tim Magang
+            </div>
+            <h2 className="section-title">Peserta Intern 2026</h2>
             <p className="section-subtitle">
-              Lima talenta muda yang bergabung bersama kami untuk belajar dan berkembang
+              Enam talenta muda yang bergabung bersama kami untuk belajar, berkembang, dan berkontribusi.
             </p>
           </div>
 
+          {/* Cards Grid */}
           <div className="interns-grid">
             {internsData.map((intern, index) => (
               <div
                 key={intern.id}
                 className="intern-card"
                 onClick={() => handleCardClick(intern.id)}
-                style={{
-                  '--card-gradient': intern.gradient,
-                  '--card-color': intern.color,
-                  animationDelay: `${index * 0.1}s`
-                }}
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
+                {/* Glow */}
                 <div className="card-glow"></div>
+
+                {/* Photo Header */}
                 <div className="card-header">
-                  <div className="card-avatar" style={{ background: intern.gradient }}>
+                  <div className="card-avatar">
                     <img src={intern.photos[0]} alt={intern.name} />
                   </div>
-                  <div className="card-badge" style={{ background: intern.gradient }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+
+                  {/* Overlay name on photo */}
+                  <div className="card-photo-info">
+                    <p className="card-name-overlay">{intern.name}</p>
+                    <p className="card-role-overlay">{intern.role}</p>
+                  </div>
+
+                  {/* Badge */}
+                  <div className="card-badge">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                       <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                 </div>
-                
+
+                {/* Card Body */}
                 <div className="card-body">
-                  <h3 className="card-name">{intern.name}</h3>
-                  <p className="card-role">{intern.role}</p>
-                  <div className="card-division" style={{ color: intern.color }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <div className="card-division">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
                       <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                     {intern.division}
@@ -127,9 +163,10 @@ function Home() {
                   <p className="card-bio">{intern.bio}</p>
                 </div>
 
+                {/* Card Footer */}
                 <div className="card-footer">
                   <span className="view-profile">
-                    View Profile
+                    Lihat Profil
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                       <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
@@ -141,12 +178,14 @@ function Home() {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* ── FOOTER ───────────────────────────────── */}
       <footer className="footer">
-        <p>Made with ❤️ by WIKA Beton Intern 2026</p>
+        <p>Made with ❤️ by WIKA Beton Intern Team &nbsp;·&nbsp; 2026</p>
       </footer>
     </div>
   );
 }
 
 export default Home;
+
+
