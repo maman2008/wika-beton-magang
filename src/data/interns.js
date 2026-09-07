@@ -1,7 +1,7 @@
 export const internsData = [
   {
-    id: 'Audrey',
-    name: 'Audrey',
+    id: 'Hatif',
+    name: 'Hatif',
     division: 'Finance',
     role: 'Finance Intern',
     color: '#0D8BFE',
@@ -10,8 +10,8 @@ export const internsData = [
     skills: ['Financial Analysis', 'Excel', 'Budgeting', 'Reporting', 'Data Visualization'],
     email: 'audrey@wikabeton.id',
     phone: '+62 812-3456-7890',
-    university: 'Institut Teknologi Bandung',
-    major: 'Manajemen Keuangan',
+    university: 'Universitas ',
+    major: 'Management',
     quote: 'Numbers tell stories, and I love reading them.',
     hobbies: ['Reading financial journals', 'Data analysis competitions', 'Stock market research'],
     photos: [
@@ -28,8 +28,8 @@ export const internsData = [
     }
   },
   {
-    id: 'Hatif',
-    name: 'Hatif',
+    id: 'Dimas',
+    name: 'Dimas',
     division: 'Finance',
     role: 'Finance Intern',
     color: '#0D8BFE',
@@ -38,8 +38,8 @@ export const internsData = [
     skills: ['Accounting', 'Financial Reporting', 'Data Analysis', 'Auditing', 'QuickBooks'],
     email: 'hatif@wikabeton.id',
     phone: '+62 813-4567-8901',
-    university: 'Universitas Indonesia',
-    major: 'Akuntansi',
+    university: 'Universitas Brawijaya',
+    major: 'Keuangan',
     quote: 'Precision in finance leads to success.',
     hobbies: ['Puzzle solving', 'Financial modeling games', 'Accounting software exploration'],
     photos: [
@@ -66,8 +66,8 @@ export const internsData = [
     skills: ['Financial Planning', 'Cost Analysis', 'Investment Analysis', 'Tax Planning', 'Risk Management'],
     email: 'ita@wikabeton.id',
     phone: '+62 814-5678-9012',
-    university: 'Universitas Gadjah Mada',
-    major: 'Ekonomi',
+    university: 'Universitas  ',
+    major: 'Management',
     quote: 'Strategic planning is the key to financial success.',
     hobbies: ['Investment research', 'Economic forecasting', 'Financial podcast listening'],
     photos: [
@@ -84,8 +84,8 @@ export const internsData = [
     }
   },
   {
-    id: 'Dimas',
-    name: 'Dimas',
+    id: 'Audrey',
+    name: 'Audrey',
     division: 'Finance',
     role: 'Finance Intern',
     color: '#0D8BFE',
@@ -94,7 +94,7 @@ export const internsData = [
     skills: ['Financial Modeling', 'Risk Analysis', 'Cash Flow Management', 'Forecasting', 'Excel VBA'],
     email: 'dimas@wikabeton.id',
     phone: '+62 815-6789-0123',
-    university: 'Institut Teknologi Sepuluh Nopember',
+    university: 'Institut Indonesia',
     major: 'Manajemen',
     quote: 'Excellence in finance starts with attention to detail.',
     hobbies: ['Financial modeling challenges', 'Process optimization games', 'Excel automation scripting'],
@@ -112,7 +112,7 @@ export const internsData = [
     }
   },
   {
-    id: 'maman',
+    id: 'Maman',
     name: 'Maman',
     division: 'UI/UX Design',
     role: 'UI/UX Designer',
@@ -122,8 +122,8 @@ export const internsData = [
     skills: ['Figma', 'UI Design', 'UX Research', 'Prototyping', 'Design Systems', 'Adobe Creative Suite'],
     email: 'maman@wikabeton.id',
     phone: '+62 816-7890-1234',
-    university: 'Universitas Brawijaya',
-    major: 'Desain Komunikasi Visual',
+    university: 'Idn Boarding School',
+    major: 'Rekyayasa Perangkat Lunak',
     quote: 'Good design is invisible, great design is unforgettable.',
     hobbies: ['Digital illustration', 'UI design challenges', 'Design thinking workshops'],
     photos: [
@@ -140,7 +140,7 @@ export const internsData = [
     }
   },
   {
-    id: 'genta',
+    id: 'Genta',
     name: 'Genta',
     division: 'IT Support',
     role: 'IT Support Specialist',
@@ -150,8 +150,8 @@ export const internsData = [
     skills: ['Technical Support', 'Network Configuration', 'Hardware Troubleshooting', 'System Maintenance', 'Cybersecurity'],
     email: 'genta@wikabeton.id',
     phone: '+62 817-8901-2345',
-    university: 'Universitas Airlangga',
-    major: 'Sistem Informasi',
+    university: 'SMK yadhika',
+    major: 'Teknik komputer jaringan',
     quote: 'Every problem has a solution, you just need to find it.',
     hobbies: ['Hardware tinkering', 'Cybersecurity challenges', 'Tech gadget reviews'],
     photos: [
