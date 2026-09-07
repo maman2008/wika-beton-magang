@@ -42,37 +42,38 @@
 }
 
 /* ==========================================
-   BACK BUTTON
+   BACK BUTTON - FIXED POSITION (TIDAK IKUT SCROLL)
    ========================================== */
 .back-btn {
-  position: fixed;
+  position: fixed !important;
   top: 1.5rem;
   left: 1.5rem;
-  z-index: 100;
+  z-index: 9999;
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
   padding: 0.8rem 1.4rem;
-  background: var(--bg-card);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-color);
-  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
   color: var(--text-primary);
   font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
 }
 
 .back-btn:hover {
-  background: var(--bg-secondary);
+  background: rgba(13, 139, 254, 0.9);
   transform: translateX(-4px);
-  border-color: var(--border-hover);
-  box-shadow: 0 8px 28px rgba(13, 139, 254, 0.2);
-  color: #0D8BFE;
+  border-color: rgba(13, 139, 254, 1);
+  box-shadow: 0 6px 24px rgba(13, 139, 254, 0.4);
+  color: #ffffff;
 }
 
 .back-btn svg {
@@ -84,6 +85,31 @@
   transform: translateX(-4px);
 }
 
+/* Responsive adjustments for back button */
+@media (max-width: 768px) {
+  .back-btn {
+    top: 1rem;
+    left: 1rem;
+    padding: 0.65rem 1.1rem;
+    font-size: 0.85rem;
+    /* animation: floatButtonMobile 6s ease-in-out infinite; */
+  }
+  
+  @keyframes floatButtonMobile {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+  }
+}
+
+@media (max-width: 480px) {
+  .back-btn {
+    top: 0.8rem;
+    left: 0.8rem;
+    padding: 0.6rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
 /* ==========================================
    DETAIL CONTENT
    ========================================== */
@@ -92,7 +118,7 @@
   z-index: 1;
   max-width: 1280px;
   margin: 0 auto;
-  padding: 6rem 2rem 2rem;
+  padding: 6rem 3rem 2rem;
   opacity: 0;
   transform: translateY(24px);
   transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
@@ -135,7 +161,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center center;
   transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -196,6 +222,7 @@
   margin-bottom: 0.4rem;
   line-height: 1;
   letter-spacing: -0.03em;
+  font-family: 'Poppins', sans-serif;
 }
 
 .intern-role {
@@ -274,7 +301,7 @@
   font-size: 1.5rem;
   font-weight: 800;
   color: #0D8BFE;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Poppins', sans-serif;
   line-height: 1;
 }
 
@@ -384,6 +411,26 @@
   color: #0D8BFE;
   background: rgba(13, 139, 254, 0.08);
   transform: translateX(4px);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(13, 139, 254, 0.1);
+  color: #0D8BFE;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(13, 139, 254, 0.2);
+}
+
+.social-icon:hover {
+  background: #0D8BFE;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(13, 139, 254, 0.3);
 }
 
 /* ==========================================
@@ -496,6 +543,242 @@
 }
 
 .achievement-item p {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* ==========================================
+   CV & PORTFOLIO SECTION
+   ========================================== */
+.cv-portfolio-section {
+  margin-bottom: 3rem;
+  animation: fadeUp 0.7s ease-out 0.7s backwards;
+}
+
+.cv-portfolio-section h2,
+.hobbies-section h2,
+.certifications-section h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.cv-portfolio-section h2::before,
+.hobbies-section h2::before,
+.certifications-section h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 1em;
+  background: linear-gradient(180deg, #0D8BFE, #0055bb);
+  border-radius: 4px;
+}
+
+.cv-portfolio-links {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cv-link, .portfolio-link {
+  flex: 1;
+  min-width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  padding: 1.2rem 2rem;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  border: 2px solid transparent;
+}
+
+.cv-link {
+  background: linear-gradient(135deg, #0D8BFE, #0055bb) !important;
+  color: white;
+  box-shadow: 0 6px 24px rgba(13, 139, 254, 0.4);
+}
+
+.portfolio-link {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 2px solid;
+}
+
+.cv-link:hover, .portfolio-link:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 36px rgba(13, 139, 254, 0.3);
+}
+
+.cv-link:hover {
+  background: linear-gradient(135deg, #0055bb, #0D8BFE) !important;
+}
+
+.portfolio-link:hover {
+  background: rgba(13, 139, 254, 0.08);
+}
+
+/* ==========================================
+   SOCIAL MEDIA SECTION
+   ========================================== */
+.social-media {
+  margin-top: 2rem;
+  animation: slideInLeft 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.6s backwards;
+}
+
+.social-media h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.1rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.social-link svg {
+  flex-shrink: 0;
+}
+
+/* Instagram Brand Color */
+.social-instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  border-color: #e1306c;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(225, 48, 108, 0.3);
+}
+
+/* LinkedIn Brand Color */
+.social-linkedin:hover {
+  background: #0077b5;
+  border-color: #0077b5;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
+}
+
+/* Telegram Brand Color */
+.social-telegram:hover {
+  background: #0088cc;
+  border-color: #0088cc;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 136, 204, 0.3);
+}
+
+/* ==========================================
+   HOBBIES SECTION
+   ========================================== */
+.hobbies-section {
+  margin-bottom: 3rem;
+  animation: fadeUp 0.7s ease-out 0.8s backwards;
+}
+
+.hobbies-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.hobby-tag {
+  padding: 0.6rem 1.3rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(13, 139, 254, 0.3);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0D8BFE;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: default;
+}
+
+.hobby-tag:hover {
+  background: rgba(13, 139, 254, 0.12);
+  border-color: rgba(13, 139, 254, 0.6);
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 8px 24px rgba(13, 139, 254, 0.2);
+}
+
+/* ==========================================
+   CERTIFICATIONS SECTION
+   ========================================== */
+.certifications-section {
+  margin-bottom: 3rem;
+  animation: fadeUp 0.7s ease-out 0.9s backwards;
+}
+
+.certifications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.certification-item {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.3rem 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+  border-radius: 18px;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: var(--shadow-card);
+}
+
+.certification-item:hover {
+  background: var(--bg-card-hover, var(--bg-secondary));
+  transform: translateX(8px);
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 32px rgba(13, 139, 254, 0.15);
+}
+
+.certification-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(13, 139, 254, 0.3);
+  background: linear-gradient(135deg, #0D8BFE, #0055bb) !important;
+}
+
+.certification-item p {
   font-size: 0.98rem;
   color: var(--text-secondary);
   line-height: 1.5;
@@ -645,6 +928,11 @@
   .main-photo {
     border-radius: 22px;
     aspect-ratio: 4/3;
+  }
+
+  /* Perbaikan foto profil di mobile - tidak kepotong */
+  .main-photo img {
+    object-position: center center;
   }
 
   .intern-name {

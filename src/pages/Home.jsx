@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { internsData } from '../data/interns';
 import { useEffect, useState } from 'react';
 import ThemeToggle from '../components/ThemeToggle';
+import TypingAnimation from '../components/TypingAnimation';
 import './Home.css';
 
 function Home() {
@@ -57,10 +58,12 @@ function Home() {
 
           {/* Title */}
           <h1 className="hero-title">
-            <span className="title-welcome">Welcome to</span>
-            <span className="title-main">
-              <span className="title-word">WIKA</span>
-              <span className="title-word">BETON</span>
+            <span className="title-main" style={{ fontSize: 'clamp(2.5rem, 7vw, 5rem)' }}>
+              <TypingAnimation 
+                text={["Welcome WIKA BETON"]}
+                speed={80}
+                delay={2500}
+              />
             </span>
             <span className="title-intern">Intern Program</span>
             <span className="title-year">2026</span>
@@ -161,6 +164,25 @@ function Home() {
                     {intern.division}
                   </div>
                   <p className="card-bio">{intern.bio}</p>
+                </div>
+
+                {/* CV & Portfolio Indicators */}
+                <div className="card-cv-portfolio">
+                  <div className="cv-indicator" title="CV tersedia">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" strokeWidth="1.5"/>
+                      <path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                    CV
+                  </div>
+                  <div className="portfolio-indicator" title="Portfolio tersedia">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke="currentColor" strokeWidth="1.5"/>
+                      <path d="M12 22V12" stroke="currentColor" strokeWidth="1.5"/>
+                      <path d="m3.3 7 8.7 5 8.7-5" stroke="currentColor" strokeWidth="1.5"/>
+                    </svg>
+                    Portfolio
+                  </div>
                 </div>
 
                 {/* Card Footer */}

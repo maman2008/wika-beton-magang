@@ -1,0 +1,49 @@
+.typing-animation {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.typing-text {
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #4facfe 0%, #0D8BFE 40%, #0055bb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1.2em;
+  background: linear-gradient(135deg, #4facfe 0%, #0D8BFE 100%);
+  margin-left: 4px;
+  animation: blink 1s infinite;
+  transform: translateY(2px);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Dark theme */
+[data-theme="dark"] .typing-text {
+  background: linear-gradient(135deg, #4facfe 0%, #0D8BFE 40%, #0055bb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light theme */
+[data-theme="light"] .typing-text {
+  background: linear-gradient(135deg, #0D8BFE 0%, #0055bb 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
